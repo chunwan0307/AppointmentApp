@@ -232,7 +232,7 @@ fun SubmitFeedbackScreen(
         },
         containerColor = AppBackground
     ) { paddingValues ->
-        // ... (The Column with the star rating and text field remains unchanged)
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -316,7 +316,7 @@ fun SubmitFeedbackScreen(
         )
     }
 
-    // 3. ADD the call to show the new dialog when its state is true
+
     if (showMissingRatingDialog) {
         MissingRatingDialog(onDismiss = { showMissingRatingDialog = false })
     }
@@ -374,7 +374,7 @@ fun MissingRatingDialog(onDismiss: () -> Unit) {
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 Icon(
-                    imageVector = Icons.Default.Star, // Using a star icon for context
+                    imageVector = Icons.Default.Star,
                     contentDescription = "Rating required",
                     tint = AppTextBrown,
                     modifier = Modifier.size(56.dp)
@@ -422,7 +422,7 @@ fun DiscardChangesDialog(onConfirmDiscard: () -> Unit, onDismiss: () -> Unit) {
                     horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
                     OutlinedButton(
-                        onClick = onConfirmDiscard, // Discard button
+                        onClick = onConfirmDiscard,
                         shape = RoundedCornerShape(12.dp),
                         modifier = Modifier.weight(1f),
                         border = BorderStroke(1.dp, AppTextBrown)
@@ -430,7 +430,7 @@ fun DiscardChangesDialog(onConfirmDiscard: () -> Unit, onDismiss: () -> Unit) {
                         Text("Discard", color = AppTextBrown)
                     }
                     Button(
-                        onClick = onDismiss, // Continue editing button
+                        onClick = onDismiss,
                         shape = RoundedCornerShape(12.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = AppTextBrown),
                         modifier = Modifier.weight(1f)

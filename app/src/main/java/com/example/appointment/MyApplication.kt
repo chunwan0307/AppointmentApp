@@ -5,7 +5,7 @@ import com.jakewharton.threetenabp.AndroidThreeTen
 
 class MyApplication : Application() {
     override fun onCreate() {
-        super.onCreate()// Initialize the ThreeTenABP library
+        super.onCreate()
         AndroidThreeTen.init(this)
     }
 }

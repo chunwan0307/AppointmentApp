@@ -164,7 +164,7 @@ fun SelectDateScreen(
                         }
                     },
                     modifier = Modifier
-                        .fillMaxWidth(0.9f), // Take 90% of width
+                        .fillMaxWidth(0.9f),
                     shape = RoundedCornerShape(12.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = AppTextBrown)
                 ) {
@@ -185,8 +185,6 @@ fun SelectDateScreen(
         MissingTimeDialog(onDismiss = { showMissingTimeDialog = false })
     }
 }
-
-// Add this new composable to SelectDateScreen.kt
 
 @Composable
 fun MissingTimeDialog(onDismiss: () -> Unit) {
@@ -263,8 +261,6 @@ fun InvalidDateDialog(onDismiss: () -> Unit) {
 }
 
 
-// In SelectDateScreen.kt, replace the CalendarView function
-
 @Composable
 fun CalendarView(
     currentMonth: YearMonth,
@@ -303,7 +299,6 @@ fun CalendarView(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Days of the week header (This part remains the same)
             Row(modifier = Modifier.fillMaxWidth()) {
                 val daysOfWeek = listOf("S", "M", "T", "W", "T", "F", "S")
                 daysOfWeek.forEach { day ->

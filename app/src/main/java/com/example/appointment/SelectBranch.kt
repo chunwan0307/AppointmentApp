@@ -86,7 +86,6 @@ fun BookingScreen(
             TopAppBar(
                 title = {},
                 navigationIcon = {
-                    // When the back button is clicked, show the dialog instead of navigating directly
                     IconButton(onClick = { showDiscardDialog = true }) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
@@ -186,7 +185,7 @@ fun DiscardBookingDialog(onConfirm: () -> Unit, onDismiss: () -> Unit) {
                     color = AppTextBrown,
                     textAlign = TextAlign.Center
                 )
-                // The discard button
+
                 Button(
                     onClick = onConfirm,
                     shape = RoundedCornerShape(12.dp),

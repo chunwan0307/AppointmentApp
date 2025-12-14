@@ -26,7 +26,7 @@ import com.example.appointment.ui.AppBackground
 import com.example.appointment.ui.AppBottomNavigationBar
 import com.example.appointment.ui.AppBrown
 import com.example.appointment.ui.AppTextBrown
-import com.example.appointment.ui.theme.AppointmentTheme // Make sure this is imported
+import com.example.appointment.ui.theme.AppointmentTheme
 
 enum class AppointmentStatus {
     Approved, Pending, Rejected
@@ -170,7 +170,7 @@ fun AppointmentDetailCard(appointment: Appointment, onCancelClick: () -> Unit) {
             ) {
                 Text(
                     text = appointment.date,
-                    style = MaterialTheme.typography.titleLarge, // Correct: No fontWeight override
+                    style = MaterialTheme.typography.titleLarge,
                     fontStyle = FontStyle.Italic,
                     fontWeight = FontWeight.Bold,
                     color = AppTextBrown
@@ -195,14 +195,14 @@ fun AppointmentDetailCard(appointment: Appointment, onCancelClick: () -> Unit) {
                 )
                 Text(
                     text = appointment.status.name,
-                    style = MaterialTheme.typography.bodyLarge, // Correct: No fontWeight override
+                    style = MaterialTheme.typography.bodyLarge,
                     color = when (appointment.status) {
                         AppointmentStatus.Approved -> Color(0xFF2E7D32) // Green
                         AppointmentStatus.Pending -> Color(0xFFF57F17) // Amber
                         AppointmentStatus.Rejected -> Color(0xFFC62828) // Red
                     }
                 )
-                Spacer(modifier = Modifier.height(8.dp)) // Extra space above the button
+                Spacer(modifier = Modifier.height(8.dp))
                 Button(
                     onClick = onCancelClick,
                     shape = RoundedCornerShape(12.dp),
@@ -211,7 +211,7 @@ fun AppointmentDetailCard(appointment: Appointment, onCancelClick: () -> Unit) {
                 ) {
                     Text(
                         "Cancel",
-                        style = MaterialTheme.typography.labelLarge, // Correct: Use theme style
+                        style = MaterialTheme.typography.labelLarge,
                         color = Color.White
                     )
                 }
@@ -277,7 +277,7 @@ fun CancelAppointmentDialog(onConfirm: () -> Unit, onDismiss: () -> Unit) {
                 )
                 Text(
                     text = "Are you sure you want to cancel this appointment?",
-                    style = MaterialTheme.typography.titleLarge, // Correct: Use a direct style, no .copy()
+                    style = MaterialTheme.typography.titleLarge,
                     color = AppTextBrown,
                     textAlign = TextAlign.Center
                 )

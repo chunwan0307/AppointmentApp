@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.sp
 import com.example.appointment.ui.*
 import com.example.appointment.ui.theme.AppointmentTheme
 
-// Data class to represent a single notification
 data class NotificationItem(
     val title: String,
     val subtitle: String,
@@ -45,7 +44,7 @@ fun NotificationScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { /* No title */ },
+                title = {},
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(
