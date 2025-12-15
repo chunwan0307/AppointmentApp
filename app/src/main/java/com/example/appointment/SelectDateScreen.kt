@@ -58,6 +58,10 @@ fun SelectDateScreen(
     var currentMonth by remember { mutableStateOf(YearMonth.from(selectedDate)) }
     var showMissingTimeDialog by remember { mutableStateOf(false) }
 
+    LaunchedEffect(Unit) {
+        onDateSelected(selectedDate)
+    }
+
     val availableTimes =
         listOf("10:00 AM", "12:00 PM", "01:00 PM", "03:00 PM", "04:00 PM", "05:00 PM")
 
