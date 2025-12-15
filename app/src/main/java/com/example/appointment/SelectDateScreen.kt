@@ -6,9 +6,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -36,7 +33,6 @@ import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 import java.time.temporal.WeekFields
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.material.icons.filled.Warning
 import androidx.compose.ui.window.Dialog
 import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.ui.text.font.FontStyle
@@ -225,45 +221,6 @@ fun MissingTimeDialog(onDismiss: () -> Unit) {
         }
     }
 }
-
-
-@Composable
-fun InvalidDateDialog(onDismiss: () -> Unit) {
-    Dialog(onDismissRequest = onDismiss) {
-        Card(
-            shape = RoundedCornerShape(24.dp),
-            colors = CardDefaults.cardColors(containerColor = Color.White)
-        ) {
-            Column(
-                modifier = Modifier.padding(horizontal = 24.dp, vertical = 32.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(16.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.Warning,
-                    contentDescription = "Warning",
-                    tint = AppTextBrown,
-                    modifier = Modifier.size(56.dp)
-                )
-                Text(
-                    text = "You can only select a future date for an appointment.",
-                    style = MaterialTheme.typography.headlineSmall.copy(fontSize = 20.sp),
-                    color = AppTextBrown,
-                    textAlign = TextAlign.Center
-                )
-                Button(
-                    onClick = onDismiss,
-                    shape = RoundedCornerShape(12.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = AppTextBrown),
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text("Continue", color = Color.White)
-                }
-            }
-        }
-    }
-}
-
 
 @Composable
 fun CalendarView(

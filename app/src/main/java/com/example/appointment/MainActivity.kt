@@ -85,8 +85,14 @@ class MainActivity : ComponentActivity() {
 
                     Screen.SelectBranch -> {
                         val sampleBranches = listOf(
-                            Branch(id = 1, name = "Cheras Branch", phoneNumber = "03-72841935", address = "Lot 3A, Jalan Perniagaan Cheras 2, Pusat Perniagaan Cheras, 56100 Kuala Lumpur", hours = "Tue to Sun | 10am-2pm & 3pm-7pm\nMon | Closed", imageResId = com.example.appointment.R.drawable.cheras_branch),
-                            Branch(id = 2, name = "Bangsar Branch", phoneNumber = "03-22019876", address = "12, Jalan Telawi 3, Bangsar, 59100 Kuala Lumpur", hours = "Mon to Sat | 10am-8pm\nSun | Closed", imageResId = com.example.appointment.R.drawable.bangsar_branch)
+                            Branch(id = 1, name = "Cheras Branch", phoneNumber = "03-72841935",
+                                address = "Lot 3A, Jalan Perniagaan Cheras 2, Pusat Perniagaan Cheras, 56100 Kuala Lumpur",
+                                hours = "Tue to Sun | 10am-2pm & 3pm-7pm\nMon | Closed",
+                                imageResId = R.drawable.cheras_branch),
+                            Branch(id = 2, name = "Bangsar Branch", phoneNumber = "03-22019876",
+                                address = "12, Jalan Telawi 3, Bangsar, 59100 Kuala Lumpur",
+                                hours = "Mon to Sat | 10am-8pm\nSun | Closed",
+                                imageResId = R.drawable.bangsar_branch)
                         )
 
                         BookingScreen(
@@ -104,10 +110,10 @@ class MainActivity : ComponentActivity() {
 
                     Screen.SelectStylist -> {
                         val sampleStylists = listOf(
-                            Stylist(id = 1, name = "Jackson", imageResId = com.example.appointment.R.drawable.jackson_stylist),
-                            Stylist(id = 2, name = "Minnie", imageResId = com.example.appointment.R.drawable.minnie_stylist),
-                            Stylist(id = 3, name = "Winter", imageResId = com.example.appointment.R.drawable.winter_stylist),
-                            Stylist(id = 4, name = "Leo", imageResId = com.example.appointment.R.drawable.leo_stylist)
+                            Stylist(id = 1, name = "Jackson", imageResId = R.drawable.jackson_stylist),
+                            Stylist(id = 2, name = "Minnie", imageResId = R.drawable.minnie_stylist),
+                            Stylist(id = 3, name = "Winter", imageResId = R.drawable.winter_stylist),
+                            Stylist(id = 4, name = "Leo", imageResId = R.drawable.leo_stylist)
                         )
 
                         SelectStylistScreen(

@@ -1,6 +1,6 @@
 package com.example.appointment
 
-import android.R
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -154,10 +154,10 @@ fun StylistCard(stylist: Stylist, onClick: () -> Unit) {
 @Composable
 fun SelectStylistScreenPreview() {
     val sampleStylists = listOf(
-        Stylist(1, "Jackson", com.example.appointment.R.drawable.jackson_stylist),
-        Stylist(2, "Minnie", com.example.appointment.R.drawable.minnie_stylist),
-        Stylist(3, "Winter", com.example.appointment.R.drawable.winter_stylist),
-        Stylist(4, "Leo", com.example.appointment.R.drawable.leo_stylist)
+        Stylist(1, "Jackson", R.drawable.jackson_stylist),
+        Stylist(2, "Minnie", R.drawable.minnie_stylist),
+        Stylist(3, "Winter", R.drawable.winter_stylist),
+        Stylist(4, "Leo", R.drawable.leo_stylist)
     )
 
     MaterialTheme {

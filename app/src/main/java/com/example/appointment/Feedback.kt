@@ -1,7 +1,6 @@
 package com.example.appointment
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -161,11 +160,10 @@ fun SubmitFeedbackScreen(
     onNavigateToAppointments: () -> Unit,
     onNavigateToAccount: () -> Unit
 ) {
-    var rating by remember { mutableStateOf(0) }
+    var rating by remember { mutableIntStateOf(0) }
     var feedbackText by remember { mutableStateOf("") }
     var showSuccessDialog by remember { mutableStateOf(false) }
     var showDiscardDialog by remember { mutableStateOf(false) }
-    // 1. ADD a state variable for the new validation dialog
     var showMissingRatingDialog by remember { mutableStateOf(false) }
 
     val hasUnsavedChanges = rating > 0 || feedbackText.isNotEmpty()
