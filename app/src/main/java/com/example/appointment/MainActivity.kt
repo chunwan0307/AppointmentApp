@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
             AppointmentTheme {
                 var currentScreen by remember { mutableStateOf(Screen.AppointmentList) }
 
-                // --- State for the entire booking flow ---
+                //  State for the entire booking flow
                 var selectedBranch by remember { mutableStateOf<Branch?>(null) }
                 var selectedStylist by remember { mutableStateOf<Stylist?>(null) }
                 var selectedDate by remember { mutableStateOf<Long?>(null) }
@@ -179,7 +179,6 @@ class MainActivity : ComponentActivity() {
                             onNavigateBack = { currentScreen = Screen.SelectService },
                             onConfirmBooking = {
                                 println("Booking Confirmed!")
-                                // The dialog in your screen will navigate to home after this
                             },
                             onNavigateToHome = { currentScreen = Screen.AppointmentList },
                             onNavigateToAppointments = { currentScreen = Screen.AppointmentList },

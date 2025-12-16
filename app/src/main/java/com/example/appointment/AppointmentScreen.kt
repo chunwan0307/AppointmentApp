@@ -293,7 +293,7 @@ fun CancelAppointmentDialog(onConfirm: () -> Unit, onDismiss: () -> Unit) {
                     ) {
                         Text(
                             "Cancel",
-                            style = MaterialTheme.typography.labelLarge, // Correct: Use theme style
+                            style = MaterialTheme.typography.labelLarge,
                             modifier = Modifier.padding(vertical = 4.dp),
                             color = AppTextBrown
                         )
@@ -306,7 +306,7 @@ fun CancelAppointmentDialog(onConfirm: () -> Unit, onDismiss: () -> Unit) {
                     ) {
                         Text(
                             "Confirm",
-                            style = MaterialTheme.typography.labelLarge, // Correct: Use theme style
+                            style = MaterialTheme.typography.labelLarge,
                             modifier = Modifier.padding(vertical = 4.dp),
                             color = Color.White
                         )

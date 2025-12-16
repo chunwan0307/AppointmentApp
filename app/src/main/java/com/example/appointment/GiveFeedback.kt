@@ -2,6 +2,7 @@ package com.example.appointment
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -15,9 +16,11 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -27,8 +30,8 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.example.appointment.ui.*
 import com.example.appointment.ui.theme.AppointmentTheme
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 
-// Data class for a past appointment to be reviewed
 data class PastAppointment(
     val id: String,
     val date: String,
@@ -38,12 +41,11 @@ data class PastAppointment(
     val services: String
 )
 
-// --- Screen 1: Choose Appointment for Feedback ---
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ChooseAppointmentForFeedbackScreen(
     pastAppointments: List<PastAppointment>,
-    onAppointmentSelected: (String) -> Unit, // Passes the ID
+    onAppointmentSelected: (String) -> Unit,
     onNotificationClicked: () -> Unit,
     // Bottom navigation
     onNavigateToHome: () -> Unit,
@@ -68,7 +70,7 @@ fun ChooseAppointmentForFeedbackScreen(
         },
         bottomBar = {
             AppBottomNavigationBar(
-                currentScreen = "Account", // Assuming Feedback is part of Account
+                currentScreen = "Account",
                 onHomeClick = onNavigateToHome,
                 onAppointmentClick = onNavigateToAppointments,
                 onAccountClick = onNavigateToAccount
@@ -149,8 +151,8 @@ fun FeedbackDetailRow(icon: ImageVector, text: String) {
 }
 
 
-// --- Screen 2: Submit Feedback and Rating ---
-@OptIn(ExperimentalMaterial3Api::class)
+//  Screen 2: Submit Feedback and Rating
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
 @Composable
 fun SubmitFeedbackScreen(
     onNavigateBack: () -> Unit,
@@ -160,6 +162,7 @@ fun SubmitFeedbackScreen(
     onNavigateToAppointments: () -> Unit,
     onNavigateToAccount: () -> Unit
 ) {
+    val keyboardController = LocalSoftwareKeyboardController.current
     var rating by remember { mutableIntStateOf(0) }
     var feedbackText by remember { mutableStateOf("") }
     var showSuccessDialog by remember { mutableStateOf(false) }
@@ -191,11 +194,9 @@ fun SubmitFeedbackScreen(
             )
         },
         bottomBar = {
-            // NOTE: I am using the corrected Surface version from our previous discussion
             Surface(color = Color.White) {
                 Column {
                     Button(
-                        // 2. UPDATE the onClick logic
                         onClick = {
                             if (rating == 0) {
                                 // If no rating is given, show the validation dialog
@@ -235,7 +236,13 @@ fun SubmitFeedbackScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-                .padding(24.dp),
+                .padding(24.dp)
+                .clickable(
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = null
+                ) {
+                    keyboardController?.hide()
+                },
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Text(
@@ -270,7 +277,6 @@ fun SubmitFeedbackScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Feedback Text Field
             Text(
                 text = "Write Your Feedback",
                 style = MaterialTheme.typography.titleMedium,
@@ -283,6 +289,7 @@ fun SubmitFeedbackScreen(
                     .fillMaxWidth()
                     .height(150.dp),
                 placeholder = { Text("Feedback....") },
+                textStyle = TextStyle(color = Color.Black),
                 shape = RoundedCornerShape(12.dp),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = AppBrown,
@@ -320,7 +327,6 @@ fun SubmitFeedbackScreen(
     }
 }
 
-// --- Dialogs ---
 
 @Composable
 fun FeedbackSuccessDialog(onDismiss: () -> Unit) {

@@ -36,7 +36,6 @@ data class NotificationItem(
 fun NotificationScreen(
     notifications: List<NotificationItem>,
     onNavigateBack: () -> Unit,
-    // Bottom navigation callbacks
     onNavigateToHome: () -> Unit,
     onNavigateToAppointments: () -> Unit,
     onNavigateToAccount: () -> Unit

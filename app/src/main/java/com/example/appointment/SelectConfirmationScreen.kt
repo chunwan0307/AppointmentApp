@@ -34,7 +34,6 @@ fun SelectConfirmationScreen(
     branch: String,
     stylist: String,
     services: List<String>,
-    // Navigation Callbacks
     onNavigateBack: () -> Unit,
     onConfirmBooking: () -> Unit,
     onNavigateToHome: () -> Unit,
