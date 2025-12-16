@@ -58,12 +58,13 @@ fun NotificationScreen(
         },
         bottomBar = {
             AppBottomNavigationBar(
-                currentScreen = "Home",
+                currentScreen = "",
                 onHomeClick = onNavigateToHome,
                 onAppointmentClick = onNavigateToAppointments,
                 onAccountClick = onNavigateToAccount
             )
         },
+
         containerColor = AppBackground
     ) { paddingValues ->
         LazyColumn(

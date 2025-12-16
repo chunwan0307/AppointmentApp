@@ -1,5 +1,4 @@
 package com.example.appointment.ui
-
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -16,16 +15,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.material.icons.filled.AccessTime
 
 val AppBrown = Color(0xFF9C8B77)
 val AppTextBrown = Color(0xFF6D4C41)
 val AppMutedText = Color(0xFFBCAAA4)
 val AppBackground = Color(0xFFF7F5F2)
 
-val Schedule = Icons.Default.AccessTime
 
 // common ui for home, appointment, account
+// can use this when combine with others
+// so that everyone will have the same ui
+
 @Composable
 fun AppBottomNavigationBar(
     currentScreen: String,
